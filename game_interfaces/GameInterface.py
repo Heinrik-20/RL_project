@@ -10,9 +10,9 @@ class GameInterface():
                 callable(subclass.get_current_state) or NotImplemented)
 
     @abc.abstractmethod
-    def get_actions():
+    def get_actions(self):
         raise NotImplementedError
 
     @abc.abstractmethod
-    def get_current_state():
+    def get_current_state(self):
         raise NotImplementedError
