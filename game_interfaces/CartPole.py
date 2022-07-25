@@ -5,7 +5,7 @@ import torch
 import torchvision.transforms as T
 from PIL import Image
 from gym.utils.play import play
-from GameInterface import GameInterface
+from game_interfaces.GameInterface import GameInterface
 
 class CartPole(GameInterface):
 
@@ -15,6 +15,7 @@ class CartPole(GameInterface):
             self.__to_play()
         else:
             self.env = gym.make("CartPole-v1").unwrapped
+            self.env.reset()
         return
 
     def get_actions(self):
