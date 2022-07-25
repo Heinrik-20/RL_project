@@ -1,6 +1,6 @@
 import abc
 
-class GameInterface():
+class GameInterface(metaclass=abc.ABCMeta):
 
     @classmethod
     def __subclasshook__(cls, subclass):
@@ -15,4 +15,8 @@ class GameInterface():
 
     @abc.abstractmethod
     def get_current_state(self):
+        raise NotImplementedError
+
+    @abc.abstractmethod
+    def play_step():
         raise NotImplementedError
