@@ -10,6 +10,9 @@ class ConvNet(BaseModelInterface):
     def forward(self, X):
         return self.model(X)
 
+    def get_model(self):
+        return self.model
+
     def __build_model(height, width, output, model_specs):
 
         #TODO: implement with a simple step

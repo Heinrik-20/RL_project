@@ -1,5 +1,4 @@
 import gym
-import pygame
 import numpy as np
 import torch
 import torchvision.transforms as T
@@ -18,8 +17,8 @@ class CartPole(GameInterface):
             self.env.reset()
         return
 
-    def get_actions(self):
-        raise NotImplementedError
+    def get_action_space(self):
+        return self.env.action_space.n
 
     def play_step(self, action):
         assert(self.__ai, f"Function can only be called for AI game playing agent")
@@ -66,6 +65,7 @@ class CartPole(GameInterface):
         return get_screen()
     
     def __to_play(self):
+        import pygame
         mapping = {(pygame.K_LEFT,): 0, (pygame.K_RIGHT,): 1}
         play(gym.make("CartPole-v1"), keys_to_action=mapping)
         return 
